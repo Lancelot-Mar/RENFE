@@ -1,0 +1,4 @@
+# Excluir ejecutables.
+*.out
+*.swp
+*.swo
