@@ -14,9 +14,9 @@ int main(){
 	char dia[7][10] = {"lunes", "martes", "miercoles", "jueves", "viernes", "sábado", "domingo"};
 	float temperatura[7] = {1, 2, 3, 4, 5 ,6 ,7};
 
-	for(int i = 0, j = 0; i < 7 && j < 7; i++, j++){
+	for(int i = 0; i < 7; i++){
 			printf("Escribe la temperatura del %s\n",dia[i]);
-			scanf("%f", &temperatura[j]);
+			scanf("%f", &temperatura[i]);
 	}
 
 	return 0;
