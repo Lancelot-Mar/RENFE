@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <math.h>
 #include <time.h>
-#include <string.h>
 
 #define DIAS 7
 
@@ -16,15 +15,13 @@
 int main(){
 	char dia[7][10] = {"lunes", "martes", "miercoles", "jueves", "viernes", "sábado", "domingo"};
 	float temperatura[7] = {1, 2, 3, 4, 5 ,6 ,7};
-	float promedio = 0, mayor = 0, ;
+	float promedio = 0, mayor = -280, menor = 10000 ;
 	char dma[10];
 	char dme[10];
 
 	for(int i = 0; i < DIAS; i++){
 		printf("Escribe la temperatura del %s\n",dia[i]);
 		scanf("%f", &temperatura[i]);
-		promedio += temperatura[i];
-		menor += temperatura[i];
 
 		if(temperatura[i] > mayor){
 			mayor = temperatura[i];
@@ -38,8 +35,8 @@ int main(){
 	promedio = promedio/DIAS;
 
 	printf("Temperatura promedio de la semana:%f\n", promedio);
-	printf("Temperatura máxima: %f°C el día %s\n·", mayor, dma);
-	printf("Temperatura mínima: %f°C el día %s\n.", menor, dme);
+	printf("Temperatura máxima: %f°C el día %s\n", mayor, dma);
+	printf("Temperatura mínima: %f°C el día %s\n", menor, dme);
 
 	return EXIT_SUCCESS;
 }
