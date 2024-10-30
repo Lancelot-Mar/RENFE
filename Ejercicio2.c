@@ -12,17 +12,11 @@
 
 int main(){
 
+	char dia[8][10] = {"lunes", "martes", "miercoles", "jueves", "viernes", "sábado", "domingo"};
 
+	float temperatura[8] = {1, 2, 3, 4, 5 ,6 ,7};
 
-	float temperatura[8][10] = {
-		"Lunes",
-		"Martes",
-		"Miércoles",
-		"Jueves",
-		"Viernes",
-		"Sábado",
-		"Domingo"
-	};
+	for()
 
 	return 0;
 }
