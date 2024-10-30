@@ -5,7 +5,8 @@
 
 /*
  * 
- * 	Autor: Bryan Andreu Jiménez Rojas.
+ * 	Autor: Bryan Andreu Jiménez Rojas y Lenardo Marescutti Mariñas.
+ * 	Curso: DAM_1
  *
 */ 
 
