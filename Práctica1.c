@@ -4,10 +4,8 @@
 #define DIAS 7
 
 /*
- * 
  * 	Autor: Bryan Andreu Jiménez Rojas y Lenardo Marescutti Mariñas.
  * 	Curso: DAM_1
- *
 */ 
 
 // Vamos a crear un programa que permita almacenar y analizar las temperaturas de una semana completa.
