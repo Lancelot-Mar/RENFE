@@ -14,8 +14,8 @@ int main(){
 	
 	int cantidad_estudiantes[];
 	float nota[cantidad_estudiantes] = {};
-	float promedio = 0, suspenso = -280, aprobados = 10000, naprobados = 0, nsuspensos = 0 ;
-	int contador = 0, j = 1, cantidad_suspenso = 0, cantidad_aprobados = 0, nposicion = 0;
+	float promedio = 0, suspenso = 10, aprobados = -10, naprobados = 0, nsuspensos = 0 ;
+	int contador = 0, j = 1, cantidad_suspenso = 0, cantidad_aprobados = 0, nposicion_aprobado = 0, nposicion_suspenso = 0;
 
 	printf("Ingrese la cantidad de estudiantes: \n");
 	scanf("%d\n" cantidad_estudiantes);
@@ -30,14 +30,14 @@ int main(){
 			cantidad_suspensos += i;
 			suspenso = nota[i];
 			nsuspenso = i;
-			nposicion = suspenso
+			nposicion_suspenso = suspenso
 		} 
 		else
 		if(nota[i] > MINIMO){
 			cantidad_aprobados += i;
 			aprobado = nota[i];
 			naprobados = i
-			nposicion = aprobado
+			nposicion_aprobado = aprobado
 		}
 		else
 
@@ -45,30 +45,19 @@ int main(){
 
 	promedio = promedio/cantidad_estudiantes;
 	
-	do{
-		if(temperatura[j]>promedio){
-			contador++;
-			j++;
-		}
-		else{
-			j++;
-		}
-	}
-	while(j<DIAS);
-
-	printf("Promedio de notas:%.2f\n", promedio);
-	printf("Temperatura máxima: %.2f°C el día %s\n", mayor, dia[dma]);
-	printf("Temperatura mínima: %.2f°C el día %s\n", menor, dia[dme]);
-	printf("Número de días con temperaturas superiores al promedio: %d\n", contador);
-	printf("Días con temperaturas por debajo del promedio:\n");
 	
-	//Por último, creamos un nuevo bucle que imprima por pantalla los días de la semana que tengan temperaturas inferiores al promedio
+	printf("Promedio de notas:%.2f\n", promedio);
+	printf("Numero de Estudiantes aprobados %d\n",naprobado);
+	printf("Numero de Estudiantes suspendidos %d\n",nsuspenso);
+	printf("Numero de Estudiantes aprobados %d %.1f\n",nposicion_aprobado);
+	printf("Numero de Estudiantes aprobados %d %.1f\n",nposicion_suspenso);
+
 	for(int k = 0; k < DIAS; k++){
-		// Cada día lo comparará con el promedio y si es inferior al promedio total de la semana, lo imprimirá.
-		if(temperatura[k]<promedio){
-			printf("%s: %.2fºC\n", dia[k], temperatura[k]);
+		if(nota[k]<promedio){
+			printf("%: %.2f\n",, nota[k]);
 		}
 	}
 
+	
 	return EXIT_SUCCESS;
 }
