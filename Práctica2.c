@@ -14,7 +14,7 @@ int main(){
 	
 	int cantidad_estudiantes[];
 	float nota[cantidad_estudiantes] = {};
-	float promedio = 0, suspenso = -280, aprobados = 10000, naprobados = 0, nsuspensos = 0 ;
+	float promedio = 0, suspenso = 0, aprobados = 0, naprobados = 0, nsuspensos = 0 ;
 	int contador = 0, j = 1, cantidad_suspenso = 0, cantidad_aprobados = 0, nposicion = 0;
 
 	printf("Ingrese la cantidad de estudiantes: \n");
