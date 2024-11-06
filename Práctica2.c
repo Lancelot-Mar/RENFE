@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define NOTA 11
 #define MINIMO 5
 
 /*
@@ -12,61 +11,45 @@
 
 int main(){
 	
-	int cantidad_estudiantes[];
-	float nota[cantidad_estudiantes] = {};
-	float promedio = 0, suspenso = 0, aprobados = 0, naprobados = 0, nsuspensos = 0 ;
-	int contador = 0, j = 1, cantidad_suspenso = 0, cantidad_aprobados = 0, nposicion = 0;
+	int cantidad_estudiantes = 1;
+	float nota[cantidad_estudiantes];
+	float promedio = 0, suspenso = 0, aprobados = 0;
+	int cantidad_suspensos = 0, cantidad_aprobados = 0,npromedio = 0, nsuspenso = 0, naprobados = 0;
 
 	printf("Ingrese la cantidad de estudiantes: \n");
-	scanf("%d\n" cantidad_estudiantes);
+	scanf(" %d", &cantidad_estudiantes);
 
-	for(int i = 0; i < NOTA; i++){
-		printf("Escribe la nota del estudiante\n");
-		scanf("%f", &nota[i]);
+	for(int i = 0; i < cantidad_estudiantes; i++){
+		printf("Escribe la nota del estudiante:\n");
+		scanf(" %f", &nota[i]); //guardamos el valor de las notas
 
-		promedio += nota[i];
+		promedio += nota[i]; //sumamos las notas entre si
 		
 		if(nota[i] < MINIMO){
-			cantidad_suspensos += i;
-			suspenso = nota[i];
-			nsuspenso = i;
-			nposicion = suspenso
+			cantidad_suspensos++; //si el numero es inferior a MINIMO suma 1
+			suspenso = nota[i]; //guardamos la nota mas pequeñá
+			nsuspenso = i; //guardamos el numero de posicion del numero mas pequeño
 		} 
 		else
-		if(nota[i] > MINIMO){
-			cantidad_aprobados += i;
-			aprobado = nota[i];
-			naprobados = i
-			nposicion = aprobado
+		if(nota[i] >= MINIMO){ //Repetimos lo mismo pero para el numero mas grande
+			cantidad_aprobados++;
+			aprobados = nota[i];
+			naprobados = i;
 		}
-		else
-
 	}
 
-	promedio = promedio/cantidad_estudiantes;
+	promedio = promedio/cantidad_estudiantes; //dividimos la variable promedio por la cantidad de estudiantes
 	
-	do{
-		if(temperatura[j]>promedio){
-			contador++;
-			j++;
-		}
-		else{
-			j++;
-		}
-	}
-	while(j<DIAS);
-
 	printf("Promedio de notas:%.2f\n", promedio);
-	printf("Temperatura máxima: %.2f°C el día %s\n", mayor, dia[dma]);
-	printf("Temperatura mínima: %.2f°C el día %s\n", menor, dia[dme]);
-	printf("Número de días con temperaturas superiores al promedio: %d\n", contador);
-	printf("Días con temperaturas por debajo del promedio:\n");
-	
-	//Por último, creamos un nuevo bucle que imprima por pantalla los días de la semana que tengan temperaturas inferiores al promedio
-	for(int k = 0; k < DIAS; k++){
-		// Cada día lo comparará con el promedio y si es inferior al promedio total de la semana, lo imprimirá.
-		if(temperatura[k]<promedio){
-			printf("%s: %.2fºC\n", dia[k], temperatura[k]);
+	printf("Número de estudiantes aprobados:%d\n", cantidad_aprobados);
+	printf("Número de estudiantes suspendidos:%d\n", cantidad_suspensos);
+	printf("Nota máxima: %.2f (Estudiante en la posición %d)\n", aprobados, naprobados+1);
+	printf("Mota minima: %.2f (Estudiante en la posición %d)\n", suspenso, nsuspenso+1);
+
+	for(int j = 0; j < cantidad_estudiantes; j++){
+		if(nota[j]>promedio){
+			npromedio = j;
+			printf("Estudiante en la posición %d: %f\n",npromedio+1, nota[j]);
 		}
 	}
 
