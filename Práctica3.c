@@ -2,8 +2,10 @@
 #include <stdlib.h>
 #include <math.h>
 #include <time.h>
+#include <string.h>
 
-#define LIM 10	
+#define LIM 10
+#define MAX 20
 
 /*
  * 
@@ -13,21 +15,20 @@
 */ 
 
 int main(){
-	int gestion_producto, i = 1, j = 1;
-	int cantidad[LIM];
-	char nombre_producto[LIM][20];
-	// char cambio = 'S';
-	// int aumento;
+	int gestion_producto, i = 1, j = 1, k, l = 1, m = 1;
+	int cantidad[LIM], aumento;
+	char nombre_producto[LIM][MAX], nomproreab[LIM][MAX], buspro[LIM][MAX];
+	char reabastecer[4], buscar[4];
 	
 	printf("¿Cuantos productos quieres gestionar?\n");
 	scanf(" %d", &gestion_producto);
 	
 	if(gestion_producto <= LIM){
 		for (;i <= gestion_producto; i++){
-			printf("Escriba el nombre del producto:");
+			printf("Escriba el nombre del producto: ");
 			scanf("%s", nombre_producto[i]);
 
-			printf("Escriba la cantidad de stock del producto:");
+			printf("Escriba la cantidad de stock del producto: ");
 			scanf("%d", &cantidad[i]);
 		}
 		
@@ -40,24 +41,51 @@ int main(){
 		while(j <= gestion_producto);
 		
 		printf("\n");
-
-/*
-		while (cambio == 'S'){
-			printf("¿Desea reabastecer algún producto? (S/N)\n");
-			scanf("%c", &cambio);
 		
-			printf("Ingrese el nombre del producto:\n");
-			scanf("%s", nombre_producto[i]);
+		printf("¿Desea reabastecer algún producto (Si/No)?\n");
+		scanf("%s", reabastecer);
+		
+		while(strcmp(reabastecer, "Si") == 0){
+			printf("Ingrese el producto: ");
+			scanf("%s", nomproreab[1]);
 
-			printf("Cantidad a añadir:\n");
+			printf("Número de stocks a añadir: ");
 			scanf("%d", &aumento);
-			
-			cantidad[i];
-			//Cambiar este bucle.	
-			printf("Ahora, el stock %s tiene un stock total de %d.\n", nombre_producto[i], cantidad[i]);
-		}
-*/
 
+			for(k = 1; k <= gestion_producto; k++){
+				if(strcmp(nomproreab[1], nombre_producto[k]) == 0){
+					cantidad[k] += aumento;
+					printf("Ahora el producto %s tiene un total de %d stocks.\n", nombre_producto[k], cantidad[k]);
+				}
+			}
+
+			printf("¿Desea reabastecer otro producto?\n");
+			scanf("%s", reabastecer);
+		}
+		
+		printf("Productos en baja existencia\n");
+		for(; l <= gestion_producto; l++){
+			if(cantidad[l] < 5){
+				printf("%s - %d\n", nombre_producto[l], cantidad[l]);
+			}
+		}
+
+		printf("¿Desea buscar algún producto (Si/No)?\n");
+		scanf("%s", buscar);
+
+		while(strcmp(buscar, "Si") == 0){
+			printf("Ingrese el nombre del producto: ");
+			scanf("%s", buspro[1]);
+
+			for(m = 1; m <= gestion_producto; m++){
+				if(strcmp(buspro[1], nombre_producto[m]) == 0){
+					printf("Tiene %d stock/s.\n", cantidad[m]);
+				}
+			}
+
+			printf("¿Desea buscar otro producto?");
+			scanf("%s", buscar);
+		}
 	}
 	else{
 		printf("Solo puedes gestionar un total del 10\n");
