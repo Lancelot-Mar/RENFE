@@ -13,26 +13,25 @@
 
 int main(){
 
-	int n_palabras = 1;
-	int n_lista = {n_palabras};
-	char palabras[n_lista][20];
+int main() {
+    int n_palabras;
+    char palabras[n_palabras][20];  // Array de palabras de tamaño dinámico
 
-	printf("Cuantas palabras tiene la lista:\n");
-	scanf("%d",&n_palabras);
+    printf("¿Cuántas palabras tiene la lista?\n");
+    scanf("%d", &n_palabras);
 
-	for(int i = 0;i < n_palabras;i++){
+    for (int i = 0; i < n_palabras; i++) {
+        printf("Dime una palabra:\n");
+        scanf("%s", palabras[i]);
+    }
 
-		printf("Dime una palabara\n");
-		scanf("%s", palabras[i]);
-	}
-	
-	for(int j = 0; j < n_palabras; j++){
-		if(strcmp("a", palabras[j])){
-			continue;
-		}
-		
-		printf("%s", palabras[j]);
-	}
+    printf("Palabras sin la letra 'a':\n");
+    for (int j = 0; j < n_palabras; j++) {
+        if (strchr(palabras[j], 'a') != NULL) { // Si la palabra contiene 'a', saltarla
+            continue;
+        }
+        printf("%s\n", palabras[j]); // Imprimir solo palabras que no contienen 'a'
+    }
 
-	return 0;
+    return 0;
 }
