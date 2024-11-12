@@ -32,7 +32,6 @@ int main(){
 			printf("Escriba la cantidad de stock del producto: ");
 			scanf("%d", &cantidad[i]);
 		}
-		
 		printf("\n");
 		
 		// Cuando se den todos los valores, se imprime por pantalla la numéración, el nombre y el stock.
@@ -41,13 +40,12 @@ int main(){
 			j++;
 		}
 		while(j <= gestion_producto);
-		
 		printf("\n");
 		
 		printf("¿Desea reabastecer algún producto (Si/No)?\n");
 		scanf("%s", reabastecer);
 		
-		while(strcmp(reabastecer, "Si") == 0){ //Al igual que la condicional inicial, está se ejecuta si la variable es igual a "Si".
+		while(strcmp(reabastecer, "Si") == 0){ //Esta condicional se ejecuta si el valor escrito es igual a "Si". (Que para que fincione correctamente, tenemos que poner que su comparación es equivalente a 0, es decir, totalmente igual)
 			printf("Ingrese el producto: ");
 			scanf("%s", nomproreab[1]);
 
@@ -77,14 +75,15 @@ int main(){
 		printf("¿Desea buscar algún producto (Si/No)?\n");
 		scanf("%s", buscar);
 		
-		//
+		// Bucle que se ejcuta si compara que el valor que le hemos dado es "Si".
 		while(strcmp(buscar, "Si") == 0){
 			printf("Ingrese el nombre del producto: ");
 			scanf("%s", buspro[1]);
 
+			//Compara la cadena de cadacteres que le hemos dado con los productos que hay en la lista
 			for(m = 1; m <= gestion_producto; m++){
 				if(strcmp(buspro[1], nombre_producto[m]) == 0){
-					printf("Tiene %d stock/s.\n", cantidad[m]);
+					printf("Tiene %d stock/s.\n", cantidad[m]); // Imprime el valor del stock del producto, al correspondertel la misma numeración
 				}
 			}
 
@@ -93,7 +92,7 @@ int main(){
 		}
 	}
 	else{
-		printf("Solo puedes gestionar un total del 10\n");
+		printf("Solo puedes gestionar un total del 10\n"); //Si el valor es superior a 10, el programa no se ejecutará
 	}
 
 	return EXIT_SUCCESS;

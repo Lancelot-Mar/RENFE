@@ -20,10 +20,10 @@ int main(){
 	int modelo = 5;
 	int lote = 10;
 	
-	//El array inentario contendrá las variables asiganadas con anterioridad.
+	//El array inventario contendrá las variables asiganadas con anterioridad.
 	int inventario[continente][sede][categoría][modelo][lote];
 
-	// AL tener el array con las variables, establecemos combinaciones con resultados determinados.
+	// Las variables asignadas dentro de los corchetes del array tiene asignado un número entero, asi que asignamos distintas combinaciones.
 	inventario[1][3][2][1][6] = 125;
 	inventario[2][1][3][5][9] = 80;
 	inventario[2][2][1][2][3] = 90;

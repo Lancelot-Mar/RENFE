@@ -8,7 +8,6 @@
  * 	Curso: DAM_1
 */ 
 
-
 int main(){
 	
 	int cantidad_estudiantes = 1;
@@ -16,36 +15,39 @@ int main(){
 	float promedio = 0, suspenso = 10, aprobados = 0;
 	int cantidad_suspensos = 0, cantidad_aprobados = 0,npromedio = 0, nsuspenso = 0, naprobados = 0;
 
-	printf("Ingrese la cantidad de estudiantes: \n");
-	scanf(" %d", &cantidad_estudiantes); //guardamos la cantidad de estudiantes
+	printf("Ingrese la cantidad de estudiantes:\n");
+	scanf("%d", &cantidad_estudiantes); // Guardamos la cantidad de estudiantes
 	
 	//Creamos un bucle que vaya pasando nota por nota preguntando y guardando las notas de todos los alumnos.
 	for(int i = 1; i <= cantidad_estudiantes; i++){
 		printf("Escribe la nota del estudiante:\n");
-		scanf(" %f", &nota[i]); //guardamos el valor de las notas
+		scanf(" %f", &nota[i]); // Guardamos el valor de las notas
 
-		promedio += nota[i]; //sumamos las notas entre si
+		promedio += nota[i]; // Sumamos las notas que vayan pasando por el bucle
 		
-		if(nota[i] < MINIMO){
-			cantidad_suspensos++; //si el numero es inferior a MINIMO suma 1
+		//La condicional dependerá de:
+		if(nota[i] < MINIMO){ //Si la nota es inferior a MINIMO donde se icrementa "cantidad de supensos"
+			cantidad_suspensos++; 
 		} 
 		else
-		if(nota[i] >= MINIMO){ //Repetimos lo mismo pero para el numero mas grande
+		if(nota[i] >= MINIMO){//O si la nota es superior a MINIMO, donde se incrementa "cantidad_aprobados"
 			cantidad_aprobados++;
 		}
 
+
+		//Agregamos otra condional que sigue la misma regla, pero guardando los datos especificos de:
 		if(nota[i] > aprobados){
-			aprobados = nota[i]; //guardamos el numero mas grande
-			naprobados = i; //guardamos el numero de posicion del numero mas grande
+			aprobados = nota[i]; //La nota más alta
+			naprobados = i; //Su posición
 		}
 		else
 		if(nota[i] < suspenso){
-			suspenso = nota[i]; //guardamos el numero mas pequeño
-			nsuspenso = i; //guardamos el numero de posicion del numero mas pequeño
+			suspenso = nota[i]; //La nota más baja
+			nsuspenso = i; //Su posición
 		}
 	}
 
-	promedio = promedio/cantidad_estudiantes; //dividimos la variable promedio por la cantidad de estudiantes
+	promedio = promedio/cantidad_estudiantes; //La variable promedio se divide por la cantidad de estudiantes procesados
 
 	//Imprimimos por pantalla:
 	printf("Promedio de notas:%.2f\n", promedio);
