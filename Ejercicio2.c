@@ -11,10 +11,8 @@
  *
 */ 
 
-int main(){
-
 int main() {
-    int n_palabras;
+    int n_palabras = 1;
     char palabras[n_palabras][20];  // Array de palabras de tamaño dinámico
 
     printf("¿Cuántas palabras tiene la lista?\n");
@@ -27,11 +25,12 @@ int main() {
 
     printf("Palabras sin la letra 'a':\n");
     for (int j = 0; j < n_palabras; j++) {
-        if (strchr(palabras[j], 'a') != NULL) { // Si la palabra contiene 'a', saltarla
-            continue;
+        if (strcmp(palabras[j], "a") && strcmp(palabras[j], "A")) { 
+		printf("%s\n", palabras[j]);
         }
-        printf("%s\n", palabras[j]); // Imprimir solo palabras que no contienen 'a'
+	else{
+		continue;
+    	}
     }
-
     return 0;
 }

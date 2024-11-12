@@ -13,13 +13,13 @@ int main(){
 	
 	int cantidad_estudiantes = 1;
 	float nota[cantidad_estudiantes];
-	float promedio = 0, suspenso = 0, aprobados = 0;
+	float promedio = 0, suspenso = 10, aprobados = 0;
 	int cantidad_suspensos = 0, cantidad_aprobados = 0,npromedio = 0, nsuspenso = 0, naprobados = 0;
 
 	printf("Ingrese la cantidad de estudiantes: \n");
 	scanf(" %d", &cantidad_estudiantes);
 
-	for(int i = 0; i < cantidad_estudiantes; i++){
+	for(int i = 1; i <= cantidad_estudiantes; i++){
 		printf("Escribe la nota del estudiante:\n");
 		scanf(" %f", &nota[i]); //guardamos el valor de las notas
 
@@ -27,14 +27,20 @@ int main(){
 		
 		if(nota[i] < MINIMO){
 			cantidad_suspensos++; //si el numero es inferior a MINIMO suma 1
-			suspenso = nota[i]; //guardamos la nota mas pequeñá
-			nsuspenso = i; //guardamos el numero de posicion del numero mas pequeño
 		} 
 		else
 		if(nota[i] >= MINIMO){ //Repetimos lo mismo pero para el numero mas grande
 			cantidad_aprobados++;
+		}
+
+		if(nota[i] > aprobados){
 			aprobados = nota[i];
-			naprobados = i;
+			naprobados = i; 
+		}
+		else
+		if(nota[i] < suspenso){
+			suspenso = nota[i];
+			nsuspenso = i; //guardamos el numero de posicion del numero mas pequeño
 		}
 	}
 
@@ -43,13 +49,13 @@ int main(){
 	printf("Promedio de notas:%.2f\n", promedio);
 	printf("Número de estudiantes aprobados:%d\n", cantidad_aprobados);
 	printf("Número de estudiantes suspendidos:%d\n", cantidad_suspensos);
-	printf("Nota máxima: %.2f (Estudiante en la posición %d)\n", aprobados, naprobados+1);
-	printf("Mota minima: %.2f (Estudiante en la posición %d)\n", suspenso, nsuspenso+1);
+	printf("Nota máxima: %.2f (Estudiante en la posición %d)\n", aprobados, naprobados);
+	printf("Mota minima: %.2f (Estudiante en la posición %d)\n", suspenso, nsuspenso);
 
-	for(int j = 0; j < cantidad_estudiantes; j++){
+	for(int j = 1; j <= cantidad_estudiantes; j++){
 		if(nota[j]>promedio){
 			npromedio = j;
-			printf("Estudiante en la posición %d: %f\n",npromedio+1, nota[j]);
+			printf("Estudiante en la posición %d: %.2f\n",npromedio, nota[j]);
 		}
 	}
 
