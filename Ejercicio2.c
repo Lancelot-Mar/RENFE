@@ -6,14 +6,14 @@
 
 /*
  * 
- * 	Autor: Bryan Andreu Jiménez Rojas y Lenardo Marescutti Mariñas.
+ * 	Autor: Bryan Andreu Jiménez Rojas y Lenoardo Marescutti Mariñas.
  * 	Curso: DAM_1
  *
 */ 
 
 int main() {
-    int n_palabras = 1;
-    char palabras[n_palabras][20];  // Array de palabras de tamaño dinámico
+    int n_palabras = 8;
+    char palabras[n_palabras][20] = {"Hola","que","tal"};  // Array de palabras de tamaño dinámico
 
     printf("¿Cuántas palabras tiene la lista?\n");
     scanf("%d", &n_palabras);
@@ -25,11 +25,11 @@ int main() {
 
     printf("Palabras sin la letra 'a':\n");
     for (int j = 0; j < n_palabras; j++) {
-        if (strcmp(palabras[j], "a") && strcmp(palabras[j], "A")) { 
-		printf("%s\n", palabras[j]);
+        if (strcmp(palabras[j], "a") == 0 || strcmp(palabras[j], "A") == 0) { 
+		continue;
         }
 	else{
-		continue;
+		printf("%s\n", palabras[j]);
     	}
     }
     return 0;
