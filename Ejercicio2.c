@@ -15,14 +15,6 @@
 int main() {
     char palabras[LIM][20] = {"Hola","que","tal","como","estas"};  // Array de palabras 
 
-    //printf("¿Cuántas palabras tiene la lista?\n");
-    //scanf("%d", &n_palabras); Para hacer que el tamaño del array sea dinamico
-	
-    //for (int i = 0; i < n_palabras; i++) {
-    //    printf("Dime una palabra:\n");
-    //    scanf("%s", palabras[i]);
-    //}
-
     //Creamos un bucle que vaya palabra por palabra guardando las palabras que no contengan el valor a,A.
     printf("Palabras sin la letra 'a':\n");
     for (int j = 0; j < LIM; j++) {
